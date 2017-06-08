@@ -1,5 +1,5 @@
 name = Ctools Datetime Context
-description = Helps to bring date context in page manager
+description = Helps to bring datetime context in page manager
 core = 7.x
 php = 5.2
 dependencies[] = ctools
