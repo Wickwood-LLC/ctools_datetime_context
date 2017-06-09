@@ -1,5 +1,6 @@
 name = Ctools Datetime Context
 description = Helps to bring datetime context in page manager
 core = 7.x
+; This module utilizes DateTime class which is available by default since PHP 5.2
 php = 5.2
 dependencies[] = ctools
