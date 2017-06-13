@@ -22,6 +22,7 @@ $plugin = array(
     'second' => new ctools_context_required(t('Second'), array('string')),
   ),
   'context' => 'ctools_datetime_context_add_datetime',
+  'edit form' => 'ctools_datetime_context_from_contexts_edit_form',
   'no ui' => FALSE,
 );
 
@@ -57,4 +58,14 @@ function ctools_datetime_context_add_datetime($contexts, $conf) {
 
   // Send it to ctools.
   return ctools_context_create('datetime', $data);
+}
+
+function ctools_datetime_context_from_contexts_edit_form($form, &$form_state) {
+  // Set default values from configuration if any set already.
+  foreach (range(0, 5) as $arg_position) {
+    if (!empty($form_state['conf']['context'][$arg_position])) {
+      $form['context'][$arg_position]['#default_value'] = $form_state['conf']['context'][$arg_position];
+    }
+  }
+  return $form;
 }
